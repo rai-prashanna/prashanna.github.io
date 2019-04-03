@@ -1,0 +1,478 @@
+@font-face {
+    font-family: 'Ailerons-Regular';
+    src: url('../fonts/Ailerons-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Ailerons-Regular.otf') format('opentype'),
+        url('../fonts/Ailerons-Regular.woff') format('woff'), url('../fonts/Ailerons-Regular.ttf') format('truetype'), url('../fonts/Ailerons-Regular.svg#Ailerons-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Anson-Regular';
+    src: url('../fonts/anson-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/anson-regular-webfont.otf') format('opentype'),
+        url('../fonts/anson-regular-webfont.woff') format('woff'), url('../fonts/anson-regular-webfont.ttf') format('truetype'), url('../fonts/Ailerons-Regular.svg#Ailerons-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    overflow: hidden;
+
+    body {
+        cursor: url(../images/cursor.png) 1 1, auto !important;
+        font-family: 'Ailerons-Regular', Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        .desktop-view {
+            display: flex;
+            @media screen and (max-width: 768px) {
+                display: none !important ;
+            }
+        }
+        .mobile-view {
+            display: none !important;
+            @media screen and (max-width: 768px) {
+                display: flex !important;
+            }
+        }
+        #wrapper {
+            position: relative;
+            width: inherit;
+            height: inherit;
+            overflow: hidden;
+
+            canvas {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            nav {
+                display: block;
+                -webkit-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
+
+                .hamburger {
+                    @media screen and (max-width: 768px) {
+                        right: 0;
+                        bottom: 0;
+                        left: auto;
+                        top: auto
+                    }
+                }
+                .Menu {
+                    font-family: 'Ailerons-Regular', Arial, Helvetica, sans-serif;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    text-align: center;
+                    opacity: 0;
+                    visibility: hidden;
+                    -webkit-transform: translateX(-50%) scale(0.8);
+                    transform: translateX(-50%) scale(0.8);
+                    -webkit-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
+
+                    ul {
+                        height: 75vh;
+                        margin: 0;
+                        padding: 5rem 0;
+                        @include flexbox();
+                        @include flex-direction(column);
+                        @include justify-content(space-evenly);
+
+                        li {
+                            a {
+                                color: #e67300;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        opacity: 1;
+                        visibility: visible;
+                        -webkit-transform: translateX(-50%) scale(1);
+                        transform: translateX(-50%) scale(1);
+                        z-index: 2
+                    }
+                }
+            }
+
+            #home,
+            #work,
+            #contact {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 0;
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+                -webkit-transition: all .5s ease-in-out;
+                transition: all .5s ease-in-out;
+
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                    z-index: 1;
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                }
+
+                .name {
+                    background: linear-gradient(90deg, #F7EE45, #8c6200);
+                    position: absolute;
+                    top: 1.5rem;
+                    left: 1.5rem;
+                    font-size: 26px;
+                    opacity: 1;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-transition: all .3s ease-in-out;
+                    transition: all .3s ease-in-out;
+                    text-decoration: none;
+                }
+
+                .content {
+                    position: absolute;
+                    left: 30%;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    width: 55vw;
+                    height: auto;
+                    @media screen and (max-width: 768px) {
+                        left: 50%;
+                        width: 90vw;
+                        top: 65%;
+                        -webkit-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        z-index: 99;
+                    }
+
+                    h1 {
+                        font-size: 80px;
+                        background: linear-gradient(90deg, #F7EE45, #8c6200);
+                        margin: 0;
+                        padding: 0;
+                        position: relative;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+
+                        &:after {
+                            background: linear-gradient(90deg, #F7EE45, #8c6200);
+                            content: "";
+                            height: 10px;
+                            width: 55px;
+                            position: absolute;
+                            left: 13px;
+                            bottom: -20px;
+                        }
+                        @media screen and (max-width: 768px) {
+                            font-size: 60px;
+                        }
+                    }
+
+                    .description {
+                        width: 80%;
+                        margin-left: 75px;
+                        margin-top: -16px;
+
+                        p {
+                            background: linear-gradient(90deg, #F7EE45, #8c6200);
+                            font-family: 'Roboto', sans-serif;
+                            font-size: 21px;
+                            font-weight: 500;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            @media screen and (max-width: 768px) {
+                                font-size: 18px;
+                            }
+                        }
+                        a.view {
+                            display: inline-block;
+                            border: 2px solid #F4E943;
+                            color: #F4E943;
+                            padding: 10px 40px;
+                            -webkit-transition: all .3s ease-in-out;
+                            transition: all .3s ease-in-out;
+                            text-decoration: none;
+                            &:hover {
+                                opacity: 0.7;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+
+                .profile {
+                    position: absolute;
+                    left: 8%;
+                    top: 31%;
+                    width: 22vw;
+                    height: auto;
+                    z-index: 0;
+                    @media screen and (max-width: 768px) {
+                        top: 30%;
+                        width: 30vw;
+                        -webkit-transform: translate(75%, -50%);
+                        transform: translate(75%, -50%);
+                    }
+                }
+
+                .socials {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    top: 1.5rem;
+                    right: 1.5rem;
+
+                    li {
+                        display: inline-block;
+                        font-size: 30px;
+                        margin-right: 5px;
+
+                        a {
+                            -webkit-transition: all .3s ease-in-out;
+                            transition: all .3s ease-in-out;
+
+                            .fa-gradient {
+                                background: linear-gradient(90deg, #F7EE45, #E3D338);
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                -webkit-transition: all .3s ease-in-out;
+                                transition: all .3s ease-in-out;
+                            }
+
+                            &:hover {
+                                .fa-gradient {
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                footer {
+                    position: absolute;
+                    right: 1.5rem;
+                    bottom: .5rem;
+
+                    p {
+                        background: linear-gradient(90deg, #F7EE45, #8c6200);
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 12px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    @media screen and (max-width: 768px) {
+                        right: auto;
+                        bottom: .5rem;
+                        left: 1.5rem;
+                    }
+                }
+
+                .portfolio-wrap {
+                    align-items: center;
+                    height: 100%;
+                    justify-content: center;
+                    @include flexbox;
+
+                    figure {
+                        width: 100%;
+                        img {
+                            width: 100%;
+                        }
+                        figcaption {
+                            background:  rgba(#000000, 0.4);
+                            font-family: 'Roboto', sans-serif;
+                            padding: 20px;
+                            color: #8c6200;
+                            h3 {
+                                background: linear-gradient(90deg, #F7EE45, #8c6200);
+                                font-family: 'Anson-Regular';
+                                font-size: 24px;
+                                font-weight: bold;
+                                margin: 0 0 7px 0;
+                                padding: 0;
+                                text-transform: uppercase;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                @media screen and (max-width: 1090px) {
+                                    font-size: 20px;
+                                }
+                            }
+
+                            p {
+                                background: linear-gradient(90deg, #F7EE45, #8c6200);
+                                font-size: 13px;
+                                font-weight: 500;
+                                margin: 0 0 4px 0;
+                                padding: 0;
+                                text-transform: uppercase;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                            }
+
+                            ul {
+                                font-size: 12px;
+                                margin: 0;
+                                padding: 0;
+                                width: 100%;
+
+                                li {
+                                    background: linear-gradient(90deg, #F7EE45, #8c6200);
+                                    display: block;
+                                    line-height: 17px;
+                                    width: 100%;
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                                }
+                            }
+                            @media screen and (max-width: 992px) {
+                                padding: 10px;
+                                h3 {
+                                    font-size: 16px;
+                                }
+                                p {
+                                    font-size: 11px;
+                                }
+                                ul {
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    ul {
+                        flex-wrap: wrap;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        width: 60%;
+                        @include flexbox;
+
+                        li {
+                            float: left;
+                            margin-bottom: -3px;
+                            width: 33.33%;
+
+                            &.showcase {
+                                align-items: center;
+                                background: linear-gradient(90deg, #F7EE45, #8c6200);
+                                font-size: 40px;
+                                font-family: 'Ailerons-Regular', Arial, Helvetica, sans-serif;
+                                justify-content: center;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                @include flexbox();
+                                @media screen and (max-width: 992px) {
+                                    font-size: 32px;
+                                }
+                            }
+                        }
+                        &.mobile-view {
+                            justify-content: space-around;
+                            width: 80%;
+                            li {
+                                width: 48%;
+                                margin-bottom: 2%;
+                                &.showcase {
+                                    font-size: 60px;
+                                    justify-content: left;
+                                    margin-bottom: 40px;
+                                    position: relative;
+                                    width: 100%;
+                                    &:after {
+                                        background: linear-gradient(90deg, #F7EE45, #8c6200);
+                                        content: "";
+                                        height: 10px;
+                                        width: 55px;
+                                        position: absolute;
+                                        left: 13px;
+                                        bottom: -20px;
+                                    }
+                                }
+                                figcaption {
+                                    ul {
+                                        li {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                form {
+                    font-family: 'Roboto', sans-serif;
+                    margin-top: 45px;
+                    padding-left: 14px;
+                    width: 77%;
+                    input, textarea, button {
+                        background: rgba(#ffffff, 0.7);
+                        width: 100%;
+                        border: none;
+                        padding: 3px 10px;
+                        @include border-radius(2px);
+                    }
+                    input {
+                        line-height: 30px;
+                        margin-bottom: 10px;
+                    }
+                    textarea {
+                        font-family: 'Roboto', sans-serif  ;
+                        margin-bottom: 10px;
+                        resize: none;
+                    }
+                    input[type = submit] {
+                        background: none;
+                        border: 2px solid #F4E943;
+                        color: #F4E943;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-family: 'Ailerons-Regular', Arial, Helvetica, sans-serif;
+                        padding: 5px 40px;
+                        -webkit-transition: all .3s ease-in-out;
+                        transition: all .3s ease-in-out;
+                        text-decoration: none;
+                        width: auto;
+                        &:hover {
+                            opacity: 0.7;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            #home.active.removeActive,
+            #work.active.removeActive,
+            #contact.active.removeActive {
+                opacity: 0;
+                visibility: hidden;
+                z-index: 0;
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+                -webkit-transition: all .5s ease-in-out;
+                transition: all .5s ease-in-out;
+            }
+
+            #home.active,
+            #work.active,
+            #contact.active {
+                opacity: 1;
+                visibility: visible;
+                z-index: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    }
+}

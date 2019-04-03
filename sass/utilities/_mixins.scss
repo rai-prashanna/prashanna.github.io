@@ -1,0 +1,74 @@
+//animation for hamburgers
+@-webkit-keyframes hamburger {
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px)
+    }
+    25% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px)
+    }
+    75% {
+        -webkit-transform: translate(-3px);
+        transform: translate(-3px)
+    }
+}
+
+@keyframes hamburger {
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px)
+    }
+    25% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px)
+    }
+    75% {
+        -webkit-transform: translate(-3px);
+        transform: translate(-3px)
+    }
+}
+
+//gradient
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+}
+
+// Flexbox display
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+    -webkit-flex-direction: $direction;
+       -moz-flex-direction: $direction;
+        -ms-flex-direction: $direction;
+            flex-direction: $direction;
+}
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around 
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+       -moz-justify-content: $justify;
+        -ms-justify-content: $justify;
+            justify-content: $justify;
+              -ms-flex-pack: $justify;
+  }
+
+  @mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+  }

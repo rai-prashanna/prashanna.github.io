@@ -1,0 +1,37 @@
+html {
+	overflow: hidden;
+}
+body{
+	cursor: url(../images/cursor.png) 1 1,auto !important;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+    height: 100vh;
+}
+.wrapper {
+	position: relative;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+}
+canvas{
+	width: 100vw;
+    height: 100vh;
+}
+  
+nav .hamburger {
+	position: absolute;
+    left: 50%;
+    top: calc(2rem - 15px);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 1;
+    z-index: 3;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+nav .hamburger .hamburger-inner, nav .hamburger .hamburger-inner::before, nav .hamburger .hamburger-inner::after {
+	/* background: linear-gradient(60deg, var(--second-color), var(--third-color)); */
+    -webkit-animation: hamburger infinite linear 1s;
+    animation: hamburger infinite linear 1s;
+}
